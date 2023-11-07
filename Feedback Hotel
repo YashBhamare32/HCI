@@ -1,0 +1,55 @@
+import tkinter as tk
+from tkinter import messagebox
+
+
+# Function to submit feedback
+def submit_feedback():
+    # Here, you can save the feedback and selected options to a file or a database
+    # For this example, we will just show a message box
+    messagebox.showinfo("Feedback Submitted",
+                        "Thank you for your feedback!")
+
+
+# Create the main window
+root = tk.Tk()
+root.title("Hotel Feedback")
+
+# Create a label for the title
+title_label = tk.Label(root, text="Hotel Feedback", font=("Arial", 16))
+title_label.pack(pady=10)
+
+# Create a label for the feedback
+feedback_label = tk.Label(root, text="Please provide your feedback about the food:")
+feedback_label.pack()
+
+# Create a text area for entering feedback
+feedback_entry = tk.Text(root, width=40, height=10)
+feedback_entry.pack()
+
+# Create a label for the options
+options_label = tk.Label(root, text="Select the options that apply:")
+options_label.pack()
+
+# Checkbuttons and labels for options
+option_labels = ["Taste", "Presentation", "Service", "Cleanliness"]
+taste_var = tk.IntVar()
+presentation_var = tk.IntVar()
+service_var = tk.IntVar()
+cleanliness_var = tk.IntVar()
+
+taste_checkbox = tk.Checkbutton(root, text=option_labels[0], variable=taste_var)
+presentation_checkbox = tk.Checkbutton(root, text=option_labels[1], variable=presentation_var)
+service_checkbox = tk.Checkbutton(root, text=option_labels[2], variable=service_var)
+cleanliness_checkbox = tk.Checkbutton(root, text=option_labels[3], variable=cleanliness_var)
+
+taste_checkbox.pack()
+presentation_checkbox.pack()
+service_checkbox.pack()
+cleanliness_checkbox.pack()
+
+# Create a Submit button
+submit_button = tk.Button(root, text="Submit Feedback", command=submit_feedback)
+submit_button.pack(pady=10)
+
+# Start the main loop
+root.mainloop()
